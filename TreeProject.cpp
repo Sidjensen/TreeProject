@@ -52,6 +52,7 @@ int main()
 
 int hash(string rawdata)
 {
+	// convert to aski? then back????
 	int temp = 0;
 	temp = rawdata.length();
 	temp = temp * 37;
