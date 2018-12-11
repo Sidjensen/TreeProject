@@ -25,17 +25,21 @@ using std::endl;
 class Node
 {
 public:
-	double entry_;
-	Node * next_;
+	string ID;
+	string PARENT;
+	string RAWE;
+	string RHASH;
+	string LHASH;
+	vector<string> RHISTH;
+	vector<string> LHISTH;
+	Node * leftchild_;
+	Node * rightchild_;
 
 public:
 	// Constructors
 
-	// post: this Node contains entry and a NULL pointer
-	explicit Node(double entry);
-
-	// post: this Node contains entry and next
-	Node(double entry, Node * next);
+	// post: this Node contains entry and NULL pointers
+	explicit Node(string rawevent);
 
 	// Destructor
 
