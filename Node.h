@@ -59,6 +59,7 @@ private:
 	string LHASH;
 	vector<string> RHISTH;
 	vector<string> LHISTH;
+	Node * parent_;
 	Node * leftchild_;
 	Node * rightchild_;
 };
