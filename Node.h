@@ -32,8 +32,8 @@ class Node
 public:
 	// Constructors
 
-	// post: this Node contains entry and NULL pointers
-	explicit Node(string rawevent);
+	// post: this Node contains entry and NULL pointers, except parent
+	explicit Node(Node * parent);
 
 	// Destructor
 
