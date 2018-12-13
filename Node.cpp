@@ -103,6 +103,8 @@ void Node::changeNode(string id, string data)
 void Node::newNode(string data)
 {
 	// add a new node with the data, and make a new node
+	Node temp = Node();
+	addRawE(data);
 }
 
 string Node::printOut(vector<string> history)
