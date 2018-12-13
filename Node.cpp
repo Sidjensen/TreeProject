@@ -14,20 +14,18 @@ Node::Node(Node * parent)
 
 void Node::addLeftChild()
 {
-	Node * child = new Node * (this);
-	leftchild_ = child;
+	leftchild_ = new Node * kid(this);
 }
 
 void Node::addRightChild()
 {
-	Node * child = new Node * (this);
-	rightchild_ = child;
+	rightchild_ = new Node * kid(this);
 }
 
 void Node::addRawE(string e)
 {
 	RAWE = e;
-	ID = hashFunc(RAWE, PARENT);
+	ID = hash(RAWE, PARENT);
 }
 
 void Node::appendRHist(string s)
@@ -87,8 +85,8 @@ void Node::showRecords(string id)
 	cout << "Raw Event: " << RAWE << endl;
 	cout << "Right Hash: " << RHASH << endl;
 	cout << "Left Hash: " << LHASH << endl;
-	cout << "Right Hash History: " << RHISTH << endl;
-	cout << "Left Hash History: " << LHISTH << endl;
+	cout << "Right Hash History: " << printOut(RHISTH) << endl;
+	cout << "Left Hash History: " << printOut(LHISTH) << endl;
 
 }
 
@@ -105,4 +103,14 @@ void Node::changeNode(string id, string data)
 void Node::newNode(string data)
 {
 	// add a new node with the data, and make a new node
+}
+
+string Node::printOut(vector<string> history)
+{
+	string combination;
+	for (int i = 0; i < history.size(); i++)
+	{
+		combination += history[i];
+	}
+	return combination;
 }
