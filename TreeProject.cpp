@@ -19,7 +19,7 @@ int main()
 	bool end = false;
 	while (end == false)
 	{
-		cout << "Enter 'Q' to quit the program, 'S' to show all tree ID's, 'ID' to manipulate an ID,  or enter a piece of raw data: ";
+		cout << "Enter 'Q' to quit the program, 'S' to show all tree ID's, 'ID' to manipulate an ID,  or enter NEW piece of raw data: ";
 		cin >> rawdata;
 		if (rawdata == "Q")
 		{
@@ -46,9 +46,11 @@ int main()
 				changeNode();
 			}
 		}
-		else
+		else if(rawdata == "NEW")
 		{
+			
 			newNode();
+			
 			// create new node on tree 
 			// Set to null, if first, some random thing for parent, and set Id from the data
 			// When new node is added, make parent id, and make new id
