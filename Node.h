@@ -49,9 +49,15 @@ public:
 	//mutators
 	void addRightChild();
 	void addLeftChild();
-	void addRawE(string e)
+	void addRawE(string e);
 	void appendRHist(string s);
-	void appendLHist(string s)
+	void appendLHist(string s);
+
+	void showIDs(string parent);
+	void showRecords(string id);
+	void changeNode(string id, string data);
+	void newNode(string data);
+	string printOut(vector<string> history);
 
 private:
 	// Inaccessible standard functions
