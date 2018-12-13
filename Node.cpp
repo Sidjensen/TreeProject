@@ -12,53 +12,53 @@ Node::Node(Node * parent)
 	parent_ = parent;
 }
 
-Node::void addLeftChild()
+void Node::addLeftChild()
 {
 	leftchild_ = new Node * kid(this);
 }
 
-Node::void addRightChild()
+void Node::addRightChild()
 {
 	rightchild_ = new Node * kid(this);
 }
 
-Node::void addRawE(string e)
+void Node::addRawE(string e)
 {
 	RAWE = e;
-	ID = hash(RAWE, PARENT);
+	ID = hashFunc(RAWE, PARENT);
 }
 
-Node::void appendRHist(string s)
+void Node::appendRHist(string s)
 {
 	RHISTH.push_back(s);
 }
 
-Node::void appendLHist(string s)
+void Node::appendLHist(string s)
 {
 	LHISTH.push_back(s);
 }
 
-Node::string getID()
+string Node::getID()
 {
 	return ID;
 }
-Node::string getRhash()
+string Node::getRhash()
 {
 	return RHASH;
 }
-Node::string getLhash()
+string Node::getLhash()
 {
 	return LHASH;
 }
-Node::Node * parent()
+Node * Node::parent()
 {
 	return parent_;
 }
-Node::Node * leftChild()
+Node * Node::leftChild()
 {
 	return leftchild_;
 }
-Node::Node * rightChild()
+Node * Node::rightChild()
 {
 	return rightchild_;
 }
