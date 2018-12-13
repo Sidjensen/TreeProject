@@ -12,33 +12,56 @@ Node::Node(Node * parent)
 	parent_ = parent;
 }
 
-Node::addLeftChild()
+Node::void addLeftChild()
 {
 	leftchild_ = new Node * kid(this);
 }
 
-Node::addRightChild()
+Node::void addRightChild()
 {
 	rightchild_ = new Node * kid(this);
 }
 
-Node::addRawE(string e)
+Node::void addRawE(string e)
 {
 	RAWE = e;
 	ID = hash(RAWE, PARENT);
 }
 
-Node::appendRHist(string s)
+Node::void appendRHist(string s)
 {
 	RHISTH.push_back(s);
 }
 
-Node::appendLHist(string s)
+Node::void appendLHist(string s)
 {
 	LHISTH.push_back(s);
 }
 
-// Everything below this is from the original LList so it is probably garbage
+Node::string getID()
+{
+	return ID;
+}
+Node::string getRhash()
+{
+	return RHASH;
+}
+Node::string getLhash()
+{
+	return LHASH;
+}
+Node::Node * parent()
+{
+	return parent_;
+}
+Node::Node * leftChild()
+{
+	return leftchild_;
+}
+Node::Node * rightChild()
+{
+	return rightchild_;
+}
 
 Node::~Node()
 {}
