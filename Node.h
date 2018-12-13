@@ -18,13 +18,40 @@
 #define _NODE_H_
 
 #include <iostream>
+#include <string>
+#include <vector>
+
 using std::cout;
 using std::endl;
+using std::string;
 
 
 class Node
 {
+
 public:
+	// Constructors
+
+	// post: this Node contains entry and NULL pointers, except parent
+	explicit Node(Node * parent);
+
+	// Destructor
+
+	~Node();
+
+	void showIDs(string parent);
+
+	void showRecords(string id);
+
+	void changeNode(string id);
+
+	void newNode(string data);
+
+private:
+	// Inaccessible standard functions
+	Node();
+	Node(const Node &);
+	const Node & operator=(const Node &);
 	string ID;
 	string PARENT;
 	string RAWE;
@@ -32,24 +59,9 @@ public:
 	string LHASH;
 	vector<string> RHISTH;
 	vector<string> LHISTH;
+	Node * parent_;
 	Node * leftchild_;
 	Node * rightchild_;
-
-public:
-	// Constructors
-
-	// post: this Node contains entry and NULL pointers
-	explicit Node(string rawevent);
-
-	// Destructor
-
-	~Node();
-
-private:
-	// Inaccessible standard functions
-	Node();
-	Node(const Node &);
-	const Node & operator=(const Node &);
 };
 
 #endif
