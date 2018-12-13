@@ -12,7 +12,7 @@ using Node::Node;
 
 void addNode();
 string hash(string a, string b);
-
+void growTree(node root);
 int main()
 {
 	string rawdata;
