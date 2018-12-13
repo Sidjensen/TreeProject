@@ -9,6 +9,17 @@
 Node::Node(Node * parent)
 {
 	PARENT = parent.getID();
+	parent_ = parent;
+}
+
+Node::addLeftChild()
+{
+	leftchild_ = new Node * kid(this);
+}
+
+Node::addRightChild()
+{
+	rightchild_ = new Node * kid(this);
 }
 
 // Everything below this is from the original LList so it is probably garbage
