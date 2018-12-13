@@ -1,1 +1,42 @@
+#include "pch.h"
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace::std;
+int main()
+{
+    std::cout << "Hello World!\n"; 
+}
 
+string hashFunk(string input1, string input2)
+{
+
+}
+string funkHash(vector input)
+{
+
+}
+void growTree(node root)
+{
+	if (root.leftNode == null) && (root.rightNode == null)
+	{
+		root.addLeftChild;
+		root.addRightChild:
+	}
+	else if (root.leftNode != null
+	{
+		growTree(root.leftnode);
+	}
+	else if (root.rightNode)
+	{
+		growTree(root.rightNode);
+	}
+)
+node findEmptyNode()
+{
+
+}
+node postOrder(node traversee)
+{
+	If()
+}
