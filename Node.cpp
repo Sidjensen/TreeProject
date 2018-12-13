@@ -14,12 +14,14 @@ Node::Node(Node * parent)
 
 void Node::addLeftChild()
 {
-	leftchild_ = new Node * kid(this);
+	Node * child = new Node * (this);
+	leftchild_ = child;
 }
 
 void Node::addRightChild()
 {
-	rightchild_ = new Node * kid(this);
+	Node * child = new Node * (this);
+	rightchild_ = child;
 }
 
 void Node::addRawE(string e)
