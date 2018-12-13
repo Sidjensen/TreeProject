@@ -18,22 +18,16 @@
 #define _NODE_H_
 
 #include <iostream>
+#include <string>
+#include <vector>
+
 using std::cout;
 using std::endl;
+using std::string;
 
 
 class Node
 {
-public:
-	string ID;
-	string PARENT;
-	string RAWE;
-	string RHASH;
-	string LHASH;
-	vector<string> RHISTH;
-	vector<string> LHISTH;
-	Node * leftchild_;
-	Node * rightchild_;
 
 public:
 	// Constructors
@@ -45,11 +39,28 @@ public:
 
 	~Node();
 
+	void showIDs(string parent);
+
+	void showRecords(string id);
+
+	void changeNode(string id);
+
+	void newNode(string data);
+
 private:
 	// Inaccessible standard functions
 	Node();
 	Node(const Node &);
 	const Node & operator=(const Node &);
+	string ID;
+	string PARENT;
+	string RAWE;
+	string RHASH;
+	string LHASH;
+	vector<string> RHISTH;
+	vector<string> LHISTH;
+	Node * leftchild_;
+	Node * rightchild_;
 };
 
 #endif
