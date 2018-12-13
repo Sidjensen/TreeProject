@@ -38,14 +38,16 @@ public:
 	// Destructor
 
 	~Node();
-
-	void showIDs(string parent);
-
-	void showRecords(string id);
-
-	void changeNode(string id);
-
-	void newNode(string data);
+	//accessors
+	string getID();
+	string getRhash();
+	string getLhash();
+	Node * parent();
+	Node * leftChild();
+	Node * rightChild();
+	//mutators
+	void appendRHist(string s);
+	void appendLHist(string s)
 
 private:
 	// Inaccessible standard functions
