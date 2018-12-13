@@ -46,6 +46,9 @@ public:
 	Node * leftChild();
 	Node * rightChild();
 	//mutators
+	void addRightChild();
+	void addLeftChild();
+	void addRawE(string e)
 	void appendRHist(string s);
 	void appendLHist(string s)
 
