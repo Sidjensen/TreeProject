@@ -68,3 +68,19 @@ int hash(string a, string b)
 {
 	// make a h*cking hash
 }
+void growTree(node root)
+{
+	if (root.leftNode == null) && (root.rightNode == null)
+	{
+		root.addLeftChild;
+		root.addRightChild:
+	}
+	else if (root.leftNode != null
+	{
+		growTree(root.leftnode);
+	}
+	else if (root.rightNode)
+	{
+		growTree(root.rightNode);
+	}
+)
