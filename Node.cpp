@@ -41,10 +41,7 @@ Node::appendLHist(string s)
 // Everything below this is from the original LList so it is probably garbage
 
 Node::~Node()
-{
-	cout << "Node( " << entry_ << ", " << next_ <<
-		" ) at " << this << " destroyed" << endl;
-}
+{}
 void Node::showIDs(string parent)
 {
 	// take parent ID and use to print out all other IDs
