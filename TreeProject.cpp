@@ -7,7 +7,9 @@
 #include <string>
 #include <iostream>
 
-using namespace::std;
+using std::cin;
+using std::cout;
+using Node::Node;
 
 int main()
 {
