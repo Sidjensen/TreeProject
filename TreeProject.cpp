@@ -16,7 +16,7 @@ int main()
 	bool end = false;
 	while (end == false)
 	{
-		cout << "Type 'Q' to quit the program, 'S' to show all tree ID's, 'ID' to manipulate an ID,  or enter a piece of raw data: ";
+		cout << "Enter 'Q' to quit the program, 'S' to show all tree ID's, 'ID' to manipulate an ID,  or enter a piece of raw data: ";
 		cin >> rawdata;
 		if (rawdata == "Q")
 		{
