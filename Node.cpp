@@ -28,6 +28,16 @@ Node::addRawE(string e)
 	ID = hash(RAWE, PARENT);
 }
 
+Node::appendRHist(string s)
+{
+	RHISTH.push_back(s);
+}
+
+Node::appendLHist(string s)
+{
+	LHISTH.push_back(s);
+}
+
 // Everything below this is from the original LList so it is probably garbage
 
 Node::~Node()
