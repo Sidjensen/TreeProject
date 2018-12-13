@@ -11,7 +11,6 @@ using namespace::std;
 
 int main()
 {
-	int id, parent, lHash, rHash, lHist, rHist;
 	string rawdata;
 	bool end = false;
 	while (end == false)
@@ -25,6 +24,7 @@ int main()
 		else if (rawdata == "S")
 		{
 			//show tree as a set of ID values
+			showIDs();
 		}
 		else if (rawdata == "ID")
 		{
@@ -34,14 +34,17 @@ int main()
 			if (idTemp == "V")
 			{
 				// Show all records of the ID;
+				showRecords();
 			}
 			if (idTemp == "U")
 			{
 				//make the node have new contents, and probably change ID, and all parent stuff
+				changeNode();
 			}
 		}
 		else
 		{
+			newNode();
 			// create new node on tree 
 			// Set to null, if first, some random thing for parent, and set Id from the data
 			// When new node is added, make parent id, and make new id
