@@ -22,6 +22,12 @@ Node::addRightChild()
 	rightchild_ = new Node * kid(this);
 }
 
+Node::addRawE(string e)
+{
+	RAWE = e;
+	ID = hash(RAWE, PARENT);
+}
+
 // Everything below this is from the original LList so it is probably garbage
 
 Node::~Node()
