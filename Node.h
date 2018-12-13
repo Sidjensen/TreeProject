@@ -24,6 +24,7 @@
 using std::cout;
 using std::endl;
 using std::string;
+using std::vector;
 
 
 class Node
@@ -57,11 +58,11 @@ private:
 	Node();
 	Node(const Node &);
 	const Node & operator=(const Node &);
-	string ID;
-	string PARENT;
-	string RAWE;
-	string RHASH;
-	string LHASH;
+	string ID = NULL;
+	string PARENT = NULL;
+	string RAWE = NULL;
+	string RHASH = NULL;
+	string LHASH = NULL;
 	vector<string> RHISTH;
 	vector<string> LHISTH;
 	Node * parent_;
