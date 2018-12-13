@@ -6,19 +6,12 @@
 #include "Node.h"
 
 
-Node::Node(double entry)
-	: entry_(entry), next_(NULL)
+Node::Node(Node * parent)
 {
-	cout << "Node( " << entry_ << ", " << next_ <<
-		" ) created at " << this << endl;
+	PARENT = parent.getID();
 }
 
-Node::Node(double entry, Node * next)
-	: entry_(entry), next_(next)
-{
-	cout << "Node( " << entry_ << ", " << next_ <<
-		" ) created at " << this << endl;
-}
+// Everything below this is from the original LList so it is probably garbage
 
 Node::~Node()
 {
