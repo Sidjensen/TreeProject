@@ -6,10 +6,12 @@
 #include "LinkedList.h"
 #include <string>
 #include <iostream>
-
-using std::cin;
 using std::cout;
+using std::cin;
 using Node::Node;
+
+void addNode();
+string hash(string a, string b);
 
 int main()
 {
@@ -55,11 +57,12 @@ int main()
     return 0;
 }
 
-int hash(string rawdata)
+void addNode()
 {
-	// convert to aski? then back????
-	int temp = 0;
-	temp = rawdata.length();
-	temp = temp * 37;
-	temp = temp % 10;
+	
+}
+
+int hash(string a, string b)
+{
+	// make a h*cking hash
 }
