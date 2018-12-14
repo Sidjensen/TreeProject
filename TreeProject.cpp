@@ -22,7 +22,7 @@ int main()
 {
 	string rawdata;
 	bool end = false;
-	Node first = new Node();
+	Node * first = new Node();
 	while (end == false)
 	{
 		cout << "Enter 'Q' to quit the program, 'S' to show all tree ID's, 'ID' to manipulate an ID,  or enter NEW piece of raw data: ";
@@ -40,22 +40,25 @@ int main()
 		{
 			string idTemp;
 			cout << "Type 'V' to see the entire record of the ID, and type 'U' to update the contents of the ID";
-			cin >> idTemp;
-			if (idTemp == "V")
+			cin >> rawdata;
+			if (rawdata == "V")
 			{
 				// Show all records of the ID;
-				showRecords();
+				showRecords(idTemp);
 			}
-			if (idTemp == "U")
+			if (rawdata == "U")
 			{
 				//make the node have new contents, and probably change ID, and all parent stuff
-				changeNode();
+				cout << "Enter new record contents: ";
+				cin >> rawdata;
+				changeNode(idTemp, rawdata);
 			}
 		}
 		else if (rawdata == "NEW")
 		{
-
-			newNode();
+			cout << "Enter contents for the record: ";
+			cin >> rawdata;
+			newNode(rawdata);
 
 			// create new node on tree 
 			// Set to null, if first, some random thing for parent, and set Id from the data
@@ -100,10 +103,10 @@ Node& findNextEmpty(Node& traversee)
 	}
 	if (traversee.getID() == NULL)
 	{
-		return &traversee
+		return &traversee;
 	}
-	postOrder(traversee.leftChild())
-	postOrder(traversee.rightChild())
+	findNextEmpty(traversee.leftChild());
+	findNextEmpty(traversee.rightChild());
 }
 Node& findNode(string ID)
 {
@@ -113,10 +116,10 @@ Node& findNode(string ID)
 	}
 	if (traversee.getID() == ID)
 	{
-		return &traversee
+		return &traversee;
 	}
-	postOrder(traversee.leftChild())
-	postOrder(traversee.rightChild())
+	findNode(traversee.leftChild());
+	findNode(traversee.rightChild());
 }
 
 void Node::showIDs(Node * parent)
@@ -124,7 +127,7 @@ void Node::showIDs(Node * parent)
 	// take parent ID and use to print out all other IDs
 	Node * Firstparent = parent;
 	cout << ID;
-	while (parent.leftChild() != NULL)
+	while (*parent.leftChild() != NULL)
 	{
 		// move to the left child
 		cout << ID;
@@ -169,12 +172,4 @@ string Node::printOut(vector<string> history)
 		combination += history[i];
 	}
 	return combination;
-}
-string hashFunk(string ID, string other)
-{
-	return ID.substr(0,0) + other.substr(0,0) + ID.substr(1, 1) + other.substr(1,1) + ID.substr(2, 2) + other.substr(2,2) + ID.substr(3, 3) + other.substr(3,3) + ID.substr(4, 4) + other.substr(4,4)
-}
-string funkHash(string Child1, string Child2, string Hist1, string Hist2)
-{
-	return hashFunk(Child1, Child2).substr(0,3) + hashFunk(Hist1, Hist2).substr(4,7)
 }
