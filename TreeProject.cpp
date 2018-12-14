@@ -99,4 +99,18 @@ Node& findNextEmpty(Node& traversee)
 	postOrder(traversee.leftChild())
 	postOrder(traversee.rightChild())
 }
+Node& findNode(string ID)
+{
+	if (traversee == NULL)
+	{
+		return;
+	}
+	if (traversee.getID() == ID)
+	{
+		return &traversee
+	}
+	postOrder(traversee.leftChild())
+	postOrder(traversee.rightChild())
+}
+
 
