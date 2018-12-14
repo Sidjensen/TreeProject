@@ -68,12 +68,12 @@ Node * Node::rightChild()
 
 Node::~Node()
 {}
-void Node::showIDs(string parent)
+void Node::showIDs(Node * parent)
 {
 	// take parent ID and use to print out all other IDs
-	Node * Firstparent = parent_;
+	Node * Firstparent = parent;
 	cout << ID;
-	while (leftchild_ != NULL)
+	while (Firstparent.leftChild() != NULL)
 	{
 		// move to the left child
 		cout << ID;
