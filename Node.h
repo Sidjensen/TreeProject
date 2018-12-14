@@ -50,6 +50,10 @@ public:
 	void changeNode(string id, string data);
 	void newNode(string data);
 	string printOut(vector<string> history);
+	
+	string hashFunk(string ID, string other);
+	string funkHash(string Child1, string Child2, string Hist1, string Hist2);
+
 
 private:
 	const Node & operator=(const Node &);
