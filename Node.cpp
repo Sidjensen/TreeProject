@@ -8,8 +8,7 @@
 
 Node::Node(Node & parent)
 {
-	PARENT = parent.getID();
-	parent_ = parent;
+	setParent(parent);
 }
 
 void Node::addLeftChild()
@@ -23,6 +22,12 @@ void Node::addRightChild()
 {
 	Node child = new Node * (this);
 	rightchild_ = child;
+}
+
+void Node::setParent(Node * parent)
+{
+	PARENT = parent.getID();
+	parent_ = parent;
 }
 
 void Node::addRawE(string e)
@@ -53,6 +58,18 @@ string Node::getRhash()
 string Node::getLhash()
 {
 	return LHASH;
+}
+string getRawE()
+{
+	return RAWE;
+}
+vector<string> getRHist()
+{
+	return RHISTH;
+}
+vector<string> getLHist()
+{
+	return LHISTH;
 }
 Node * Node::parent()
 {
