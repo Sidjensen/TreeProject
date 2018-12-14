@@ -30,10 +30,14 @@ public:
 	string getID();
 	string getRhash();
 	string getLhash();
+	string getRawE();
+	vector<string> getRHist();
+	vector<string> getLHist();
 	Node * parent();
 	Node * leftChild();
 	Node * rightChild();
 	// Mutators
+	void setParent(Node * parent);
 	void addRightChild();
 	void addLeftChild();
 	void addRawE(string e);
