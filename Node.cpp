@@ -1,87 +1,102 @@
-// Node.cpp
-// Sidney Jensen, Addison Dugal, Evan Staben
-// Definitions of the Node class methods
+// TreeProject.cpp : Defines the entry point for the console application.
+//
 
-
+#include "stdafx.h"
 #include "Node.h"
+#include "LinkedList.h"
+#include <string>
+#include <iostream>
+using std::cout;
+using std::cin;
 
+void addNode();
+string hash(string a, string b);
+void growTree(Node& root);
+void showIDs(Node * parent);
+void showRecords(string id);
+void changeNode(string id, string data);
+void newNode(string data);
+string printOut(vector<string> history);
 
-Node::Node(Node * parent)
+int main()
 {
-	setParent(parent);
-}
+	string rawdata;
+	bool end = false;
+	Node first = new Node();
+	while (end == false)
+	{
+		cout << "Enter 'Q' to quit the program, 'S' to show all tree ID's, 'ID' to manipulate an ID,  or enter NEW piece of raw data: ";
+		cin >> rawdata;
+		if (rawdata == "Q")
+		{
+			end = true;
+		}
+		else if (rawdata == "S")
+		{
+			//show tree as a set of ID values
+			showIDs(first);
+		}
+		else if (rawdata == "ID")
+		{
+			string idTemp;
+			cout << "Type 'V' to see the entire record of the ID, and type 'U' to update the contents of the ID";
+			cin >> idTemp;
+			if (idTemp == "V")
+			{
+				// Show all records of the ID;
+				showRecords();
+			}
+			if (idTemp == "U")
+			{
+				//make the node have new contents, and probably change ID, and all parent stuff
+				changeNode();
+			}
+		}
+		else if (rawdata == "NEW")
+		{
 
-void Node::setParent(Node * parent)
-{
-	PARENT = parent.getID();
-	parent_ = parent;
-}
+			newNode();
 
-Node::Node()
-{}
-
-void Node::addLeftChild()
-{
-	Node child = new Node * (this);
-	leftchild_ = child;
-}
-
-void Node::addRightChild()
-{
-	Node child = new Node * (this);
-	rightchild_ = child;
-}
-
-void Node::addRawE(string e)
-{
-	RAWE = e;
-	ID = hash(RAWE, PARENT);
-	// Will add stuff here for updating history
-}
-
-void Node::appendRHist(string s)
-{
-	RHISTH.push_back(s);
-}
-
-void Node::appendLHist(string s)
-{
-	LHISTH.push_back(s);
-}
-
-string Node::getID()
-{
-	return ID;
-}
-string Node::getRhash()
-{
-	return RHASH;
-}
-string Node::getLhash()
-{
-	return LHASH;
-}
-Node * Node::parent()
-{
-	return parent_;
-}
-Node * Node::leftChild()
-{
-	return leftchild_;
-}
-Node * Node::rightChild()
-{
-	return rightchild_;
+			// create new node on tree 
+			// Set to null, if first, some random thing for parent, and set Id from the data
+			// When new node is added, make parent id, and make new id
+		}
+	}
+	return 0;
 }
 
-Node::~Node()
-{}
+void addNode()
+{
+
+}
+
+string hash(string a, string b)
+{
+	// make a h*cking hash
+}
+
+void growTree(Node& root)
+{
+	if ((root.leftChild() == NULL) && (root.rightChild() == NULL))
+	{
+		root.addLeftChild();
+		root.addRightChild();
+	}
+	else if (root.leftChild() != NULL)
+	{
+		growTree(*root.leftChild());
+	}
+	else if (root.rightChild() != NULL)
+	{
+		growTree(*root.rightChild());
+	}
+}
 void Node::showIDs(Node * parent)
 {
 	// take parent ID and use to print out all other IDs
 	Node * Firstparent = parent;
 	cout << ID;
-	while (Firstparent.leftChild() != NULL)
+	while (parent.leftChild() != NULL)
 	{
 		// move to the left child
 		cout << ID;
@@ -91,13 +106,13 @@ void Node::showIDs(Node * parent)
 void Node::showRecords(string id)
 {
 	// show all values stored at the id
-	cout << "ID: " << ID << endl;
-	cout << "Parent: " << PARENT << endl;
-	cout << "Raw Event: " << RAWE << endl;
-	cout << "Right Hash: " << RHASH << endl;
-	cout << "Left Hash: " << LHASH << endl;
-	cout << "Right Hash History: " << printOut(RHISTH) << endl;
-	cout << "Left Hash History: " << printOut(LHISTH) << endl;
+	cout << "ID: " << getID() << endl;
+	cout << "Parent: " << parent() << endl;
+	cout << "Raw Event: " << getRawE() << endl;
+	cout << "Right Hash: " << getRhash() << endl;
+	cout << "Left Hash: " << getLhash() << endl;
+	cout << "Right Hash History: " << printOut(getRHist()) << endl;
+	cout << "Left Hash History: " << printOut(getLHist()) << endl;
 
 }
 
@@ -105,7 +120,7 @@ void Node::changeNode(string id, string data)
 {
 	// change node data, then update the rest
 	// go to id
-	RAWE = data;
+	addRawE(data);
 	// change id
 	// change hash
 	// change hash history
