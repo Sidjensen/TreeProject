@@ -11,13 +11,12 @@ using std::cin;
 
 void addNode();
 string hash(string a, string b);
-void growTree(Node & root);
+void growTree(Node& root);
 int main()
 {
 	string rawdata;
 	bool end = false;
 	Node first = new Node();
-	
 	while (end == false)
 	{
 		cout << "Enter 'Q' to quit the program, 'S' to show all tree ID's, 'ID' to manipulate an ID,  or enter NEW piece of raw data: ";
@@ -29,7 +28,7 @@ int main()
 		else if (rawdata == "S")
 		{
 			//show tree as a set of ID values
-			showIDs();
+			showIDs(first);
 		}
 		else if (rawdata == "ID")
 		{
@@ -70,19 +69,19 @@ string hash(string a, string b)
 	// make a h*cking hash
 }
 
-void growTree(Node & root)
+void growTree(Node& root)
 {
-	if ((root.leftNode() == NULL) && (root.rightNode() == NULL))
+	if ((root.leftChild() == NULL) && (root.rightChild() == NULL))
 	{
 		root.addLeftChild();
 		root.addRightChild();
 	}
-	else if (root.leftNode() != NULL)
-		{
-			growTree(root.leftnode);
-		}
-	else if (root.rightNode() != NULL)
-		{
-			growTree(root.rightNode);
-		}
-	)
+	else if (root.leftChild() != NULL)
+	{
+		growTree(*root.leftChild());
+	}
+	else if (root.rightChild() != NULL)
+	{
+		growTree(*root.rightChild());
+	}
+}
