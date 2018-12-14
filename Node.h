@@ -39,7 +39,7 @@ public:
 	void appendRHist(string s);
 	void appendLHist(string s);
 	
-	void showIDs(* Node parent);
+	void showIDs(Node * parent);
 	void showRecords(string id);
 	void changeNode(string id, string data);
 	void newNode(string data);
