@@ -1,5 +1,5 @@
 // Node.cpp
-// tom bailey   1050  31 jan 2011
+// Sidney Jensen, Addison Dugal, Evan Staben
 // Definitions of the Node class methods
 
 
@@ -14,18 +14,21 @@ Node::Node(Node * parent)
 
 void Node::addLeftChild()
 {
-	leftchild_ = new Node * kid(this);
+	Node child = new Node * (this);
+	leftchild_ = child;
 }
 
 void Node::addRightChild()
 {
-	rightchild_ = new Node * kid(this);
+	Node child = new Node * (this);
+	rightchild_ = child;
 }
 
 void Node::addRawE(string e)
 {
 	RAWE = e;
 	ID = hash(RAWE, PARENT);
+	// Will add stuff here for updating history
 }
 
 void Node::appendRHist(string s)
