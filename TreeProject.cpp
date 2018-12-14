@@ -122,7 +122,7 @@ Node& findNode(Node& traversee, string ID)
 	findNode(traversee.rightChild());
 }
 
-void Node::showIDs(Node * parent)
+void Node::showIDs(Node* parent)
 {
 	// take parent ID and use to print out all other IDs
 	Node * Firstparent = parent;
