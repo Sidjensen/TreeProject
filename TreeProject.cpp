@@ -16,6 +16,8 @@ int main()
 {
 	string rawdata;
 	bool end = false;
+	Node first = new Node();
+	
 	while (end == false)
 	{
 		cout << "Enter 'Q' to quit the program, 'S' to show all tree ID's, 'ID' to manipulate an ID,  or enter NEW piece of raw data: ";
