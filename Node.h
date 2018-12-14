@@ -23,6 +23,7 @@ public:
 	// Constructor
 	// This Node contains only a parent pointer. All other data is null until entered with addRawE
 	explicit Node(Node * parent);
+	Node();
 	// Destructor
 	~Node();
 	// Accessors
@@ -46,8 +47,6 @@ public:
 	string printOut(vector<string> history);
 
 private:
-	Node();
-	Node(const Node &);
 	const Node & operator=(const Node &);
 	string ID = NULL;
 	string PARENT = NULL;
