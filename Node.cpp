@@ -39,19 +39,43 @@ void Node::setParent(Node & parent)
 void Node::addRawE(string e)
 {
 	RAWE = e;
-	ID = "Replacement String";
-	//ID = hash(RAWE, PARENT);
-	// Will add stuff here for updating history
+	ID = hashFunk(RAWE, PARENT);
+	if(this == parent_.leftChild())
+	{
+		//parent_->LHIST = hashFunk(stuff); // This might need funkHash instead? Can we hash a vector?
+		parent_->appendLHist(parent_->LHIST);
+	}
+	if(this == parent_.rightChild())
+	{
+		//parent_->LHIST = hashFunk(stuff);
+		parent_->appendRHist(parent_->RHIST);
+	}
 }
 
 void Node::appendRHist(string s)
 {
 	RHISTH.push_back(s);
+	if(this == parent_.leftChild())
+	{
+		parent_->appendLHist(s);
+	}
+	if(this == parent_.rightChild())
+	{
+		parent_->appendRHist(s);
+	}
 }
 
 void Node::appendLHist(string s)
 {
 	LHISTH.push_back(s);
+	if(this == parent_.leftChild())
+	{
+		parent_->appendLHist(s);
+	}
+	if(this == parent_.rightChild())
+	{
+		parent_->appendRHist(s);
+	}
 }
 
 string Node::getID()
