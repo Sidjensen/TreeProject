@@ -68,7 +68,7 @@ string hash(string a, string b)
 	// make a h*cking hash
 }
 
-void growTree(Node * root)
+void growTree(Node & root)
 {
 	if ((root.leftNode() == NULL) && (root.rightNode() == NULL))
 	{
