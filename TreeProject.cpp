@@ -11,7 +11,7 @@ using std::cin;
 
 void addNode();
 string hash(string a, string b);
-void growTree(Node * root);
+void growTree(Node & root);
 int main()
 {
 	string rawdata;
