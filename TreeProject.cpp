@@ -32,7 +32,7 @@ int main()
 		else if (rawdata == "S")
 		{
 			//show tree as a set of ID values
-			showID(first);
+			showID(*first);
 		}
 		else if (rawdata == "ID")
 		{
@@ -42,14 +42,14 @@ int main()
 			if (rawdata == "V")
 			{
 				// Show all records of the ID;
-				showRecords(SOME NODE, idTemp);
+				showRecords(*first, idTemp);
 			}
 			if (rawdata == "U")
 			{
 				//make the node have new contents, and probably change ID, and all parent stuff
 				cout << "Enter new record contents: ";
 				cin >> rawdata;
-				changeNode(SOME NODE, idTemp, rawdata);
+				changeNode(*first, idTemp, rawdata);
 			}
 		}
 		else if (rawdata == "NEW")
