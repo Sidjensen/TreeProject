@@ -110,36 +110,32 @@ Node& findNode(Node& traversee, string ID)
 	findNode(*traversee.rightChild(), ID);
 }
 
-void Node::showIDs(Node * parent)
+void showID(Node& traversee)
 {
-	// take parent ID and use to print out all other IDs
-	Node * Firstparent = parent;
-	cout << ID;
-	while (*parent.leftChild() != NULL)
+	while (&traversee != NULL)
 	{
-		// move to the left child
-		cout << ID;
+		cout << "ID: " << traversee.getID() << endl;
+		findNextEmpty(*traversee.leftChild());
+		findNextEmpty(*traversee.rightChild());
 	}
 }
 
-void Node::showRecords(string id)
+void Node::showRecords(Node& find, string id)
 {
-	// show all values stored at the id
-	cout << "ID: " << getID() << endl;
-	cout << "Parent: " << parent() << endl;
-	cout << "Raw Event: " << getRawE() << endl;
-	cout << "Right Hash: " << getRhash() << endl;
-	cout << "Left Hash: " << getLhash() << endl;
-	cout << "Right Hash History: " << printOut(getRHist()) << endl;
-	cout << "Left Hash History: " << printOut(getLHist()) << endl;
-
+	Node& traversee = findNode(find, id);
+	cout << "ID: " << traversee.getID() << endl;
+	cout << "Parent: " << traversee.parent() << endl;
+	cout << "Raw Event: " << traversee.getRawE() << endl;
+	cout << "Right Hash: " << traversee.getRhash() << endl;
+	cout << "Left Hash: " << traversee.getLhash() << endl;
+	cout << "Right Hash History: " << printOut(traversee.getRHist()) << endl;
+	cout << "Left Hash History: " << printOut(traversee.getLHist()) << endl;
 }
 
-void Node::changeNode(string id, string data)
+void Node::changeNode(Node& find, string id, string data)
 {
-	// change node data, then update the rest
-	// go to id
-	addRawE(data);
+	&node target = findNode(find, id);
+	target.addRawE(data);
 	// change id
 	// change hash
 	// change hash history
