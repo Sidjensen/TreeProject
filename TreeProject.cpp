@@ -12,7 +12,7 @@ using Node::Node;
 
 void addNode();
 string hash(string a, string b);
-void growTree(node root);
+void growTree(* node root);
 int main()
 {
 	string rawdata;
@@ -68,7 +68,7 @@ int hash(string a, string b)
 {
 	// make a h*cking hash
 }
-void growTree(node root)
+void growTree(* node root)
 {
 	if (root.leftNode == null) && (root.rightNode == null)
 	{
@@ -79,7 +79,7 @@ void growTree(node root)
 	{
 		growTree(root.leftnode);
 	}
-	else if (root.rightNode)
+	else if (root.rightNode != null)
 	{
 		growTree(root.rightNode);
 	}
