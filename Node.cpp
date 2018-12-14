@@ -8,6 +8,11 @@
 
 Node::Node(Node * parent)
 {
+	setParent(parent);
+}
+
+void Node::setParent(Node * parent)
+{
 	PARENT = parent.getID();
 	parent_ = parent;
 }
