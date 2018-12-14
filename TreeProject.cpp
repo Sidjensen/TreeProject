@@ -12,6 +12,12 @@ using std::cin;
 void addNode();
 string hash(string a, string b);
 void growTree(Node& root);
+void showIDs(Node * parent);
+void showRecords(string id);
+void changeNode(string id, string data);
+void newNode(string data);
+string printOut(vector<string> history);
+
 int main()
 {
 	string rawdata;
@@ -113,4 +119,54 @@ Node& findNode(string ID)
 	postOrder(traversee.rightChild())
 }
 
+void Node::showIDs(Node * parent)
+{
+	// take parent ID and use to print out all other IDs
+	Node * Firstparent = parent;
+	cout << ID;
+	while (parent.leftChild() != NULL)
+	{
+		// move to the left child
+		cout << ID;
+	}
+}
 
+void Node::showRecords(string id)
+{
+	// show all values stored at the id
+	cout << "ID: " << getID() << endl;
+	cout << "Parent: " << parent() << endl;
+	cout << "Raw Event: " << getRawE() << endl;
+	cout << "Right Hash: " << getRhash() << endl;
+	cout << "Left Hash: " << getLhash() << endl;
+	cout << "Right Hash History: " << printOut(getRHist()) << endl;
+	cout << "Left Hash History: " << printOut(getLHist()) << endl;
+
+}
+
+void Node::changeNode(string id, string data)
+{
+	// change node data, then update the rest
+	// go to id
+	addRawE(data);
+	// change id
+	// change hash
+	// change hash history
+}
+
+void Node::newNode(string data)
+{
+	// add a new node with the data, and make a new node
+	Node temp = Node();
+	addRawE(data);
+}
+
+string Node::printOut(vector<string> history)
+{
+	string combination;
+	for (int i = 0; i < history.size(); i++)
+	{
+		combination += history[i];
+	}
+	return combination;
+}
