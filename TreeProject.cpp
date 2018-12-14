@@ -141,13 +141,12 @@ void Node::changeNode(Node& find, string id, string data)
 	// change hash history
 }
 
-void Node::newNode(string data)
+void Node::newNode(Node& parent, string data)
 {
-	// add a new node with the data, and make a new node
-	Node temp = Node();
-	temp.addRawE(data);
+	// add a new node with the data
+	&node newNode = findNextEmpty(parent);
+	newNode.addRawE(data);
 }
-
 string Node::printOut(vector<string> history)
 {
 	string combination;
