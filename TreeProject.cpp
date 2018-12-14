@@ -10,9 +10,9 @@ using std::cout;
 using std::cin;
 
 void growTree(Node& root);
-void showIDs(Node * parent);
-void showRecords(string id);
-void changeNode(string id, string data);
+void showID(Node& traversee);
+void showRecords(Node& find, string id);
+void changeNode(Node& find, string id, string data);
 void newNode(string data);
 string printOut(vector<string> history);
 
@@ -32,7 +32,7 @@ int main()
 		else if (rawdata == "S")
 		{
 			//show tree as a set of ID values
-			showIDs(first);
+			showID(first);
 		}
 		else if (rawdata == "ID")
 		{
@@ -42,14 +42,14 @@ int main()
 			if (rawdata == "V")
 			{
 				// Show all records of the ID;
-				showRecords(idTemp);
+				showRecords(SOME NODE, idTemp);
 			}
 			if (rawdata == "U")
 			{
 				//make the node have new contents, and probably change ID, and all parent stuff
 				cout << "Enter new record contents: ";
 				cin >> rawdata;
-				changeNode(idTemp, rawdata);
+				changeNode(SOME NODE, idTemp, rawdata);
 			}
 		}
 		else if (rawdata == "NEW")
@@ -134,7 +134,7 @@ void Node::showRecords(Node& find, string id)
 
 void Node::changeNode(Node& find, string id, string data)
 {
-	&node target = findNode(find, id);
+	Node& target = findNode(find, id);
 	target.addRawE(data);
 	// change id
 	// change hash
@@ -145,7 +145,7 @@ void Node::newNode(string data)
 {
 	// add a new node with the data, and make a new node
 	Node temp = Node();
-	addRawE(data);
+	temp.addRawE(data);
 }
 
 string Node::printOut(vector<string> history)
