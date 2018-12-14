@@ -8,11 +8,10 @@
 #include <iostream>
 using std::cout;
 using std::cin;
-using Node::Node;
 
 void addNode();
 string hash(string a, string b);
-void growTree(* node root);
+void growTree(Node * root);
 int main()
 {
 	string rawdata;
@@ -46,41 +45,42 @@ int main()
 				changeNode();
 			}
 		}
-		else if(rawdata == "NEW")
+		else if (rawdata == "NEW")
 		{
-			
+
 			newNode();
-			
+
 			// create new node on tree 
 			// Set to null, if first, some random thing for parent, and set Id from the data
 			// When new node is added, make parent id, and make new id
 		}
 	}
-    return 0;
+	return 0;
 }
 
 void addNode()
 {
-	
+
 }
 
-int hash(string a, string b)
+string hash(string a, string b)
 {
 	// make a h*cking hash
 }
-void growTree(* node root)
+
+void growTree(Node * root)
 {
-	if (root.leftNode == null) && (root.rightNode == null)
+	if ((root.leftNode == NULL) && (root.rightNode == NULL))
 	{
 		root.addLeftChild;
-		root.addRightChild:
+		root.addRightChild;
 	}
-	else if (root.leftNode != null
-	{
-		growTree(root.leftnode);
-	}
-	else if (root.rightNode != null)
-	{
-		growTree(root.rightNode);
-	}
-)
+	else if (root.leftNode != NULL)
+		{
+			growTree(root.leftnode);
+		}
+	else if (root.rightNode != NULL)
+		{
+			growTree(root.rightNode);
+		}
+	)
