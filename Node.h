@@ -22,7 +22,8 @@ class Node
 public:
 	// Constructor
 	// This Node contains only a parent pointer. All other data is null until entered with addRawE
-	explicit Node(Node * parent);
+	//explicit Node(Node * parent);
+	Node(Node * parent);
 	Node();
 	// Destructor
 	~Node();
@@ -43,7 +44,7 @@ public:
 	void addRawE(string e);
 	void appendRHist(string s);
 	void appendLHist(string s);
-	
+
 	void showIDs(Node * parent);
 	void showRecords(string id);
 	void changeNode(string id, string data);
