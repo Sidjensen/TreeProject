@@ -12,6 +12,9 @@ Node::Node(Node * parent)
 	parent_ = parent;
 }
 
+Node::Node()
+{}
+
 void Node::addLeftChild()
 {
 	Node child = new Node * (this);
