@@ -9,8 +9,6 @@
 using std::cout;
 using std::cin;
 
-void addNode();
-string hash(string a, string b);
 void growTree(Node& root);
 void showIDs(Node * parent);
 void showRecords(string id);
@@ -66,16 +64,6 @@ int main()
 		}
 	}
 	return 0;
-}
-
-void addNode()
-{
-
-}
-
-string hash(string a, string b)
-{
-	// make a h*cking hash
 }
 
 void growTree(Node& root)
@@ -172,12 +160,4 @@ string Node::printOut(vector<string> history)
 		combination += history[i];
 	}
 	return combination;
-}
-string hashFunk(string ID, string other)
-{
-	return ID.substr(0,0) + other.substr(0,0) + ID.substr(1, 1) + other.substr(1,1) + ID.substr(2, 2) + other.substr(2,2) + ID.substr(3, 3) + other.substr(3,3) + ID.substr(4, 4) + other.substr(4,4)
-}
-string funkHash(string Child1, string Child2, string Hist1, string Hist2)
-{
-	return hashFunk(Child1, Child2).substr(0,3) + hashFunk(Hist1, Hist2).substr(4,7)
 }
