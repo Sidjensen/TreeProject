@@ -97,32 +97,32 @@ void growTree(Node& root)
 
 Node& findNextEmpty(Node& traversee)
 {
-	if (traversee == NULL)
+	if (&traversee == NULL)
 	{
 		return;
 	}
-	if (traversee.getID() == NULL)
+	if (&traversee.getID() == NULL)
 	{
-		return &traversee;
+		return traversee;
 	}
-	findNextEmpty(traversee.leftChild());
-	findNextEmpty(traversee.rightChild());
+	findNextEmpty(*traversee.leftChild());
+	findNextEmpty(*traversee.rightChild());
 }
 Node& findNode(Node& traversee, string ID)
 {
-	if (traversee == NULL)
+	if (&traversee == NULL)
 	{
 		return;
 	}
 	if (traversee.getID() == ID)
 	{
-		return &traversee;
+		return traversee;
 	}
-	findNode(traversee.leftChild());
-	findNode(traversee.rightChild());
+	findNode(*traversee.leftChild(), ID);
+	findNode(*traversee.rightChild(), ID);
 }
 
-void Node::showIDs(Node* parent)
+void Node::showIDs(Node * parent)
 {
 	// take parent ID and use to print out all other IDs
 	Node * Firstparent = parent;
