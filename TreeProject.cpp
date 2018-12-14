@@ -108,7 +108,7 @@ Node& findNextEmpty(Node& traversee)
 	findNextEmpty(traversee.leftChild());
 	findNextEmpty(traversee.rightChild());
 }
-Node& findNode(string ID)
+Node& findNode(Node& traversee, string ID)
 {
 	if (traversee == NULL)
 	{
