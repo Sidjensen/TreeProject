@@ -70,16 +70,16 @@ string hash(string a, string b)
 
 void growTree(Node * root)
 {
-	if ((root.leftNode == NULL) && (root.rightNode == NULL))
+	if ((root.leftNode() == NULL) && (root.rightNode() == NULL))
 	{
-		root.addLeftChild;
-		root.addRightChild;
+		root.addLeftChild();
+		root.addRightChild();
 	}
-	else if (root.leftNode != NULL)
+	else if (root.leftNode() != NULL)
 		{
 			growTree(root.leftnode);
 		}
-	else if (root.rightNode != NULL)
+	else if (root.rightNode() != NULL)
 		{
 			growTree(root.rightNode);
 		}
