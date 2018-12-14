@@ -6,9 +6,14 @@
 #include "Node.h"
 
 
-Node::Node(Node & parent)
+Node::Node(Node * parent)
 {
 	setParent(parent);
+}
+
+Node::Node()
+{
+
 }
 
 void Node::addLeftChild()
@@ -20,20 +25,22 @@ void Node::addLeftChild()
 
 void Node::addRightChild()
 {
-	Node child = new Node * (this);
+	Node * child = new Node();
+	child.setParent(this);
 	rightchild_ = child;
 }
 
-void Node::setParent(Node * parent)
+void Node::setParent(Node & parent)
 {
 	PARENT = parent.getID();
-	parent_ = parent;
+	parent_ = *parent;
 }
 
 void Node::addRawE(string e)
 {
 	RAWE = e;
-	ID = hash(RAWE, PARENT);
+	ID = "Replacement String";
+	//ID = hash(RAWE, PARENT);
 	// Will add stuff here for updating history
 }
 
@@ -59,15 +66,15 @@ string Node::getLhash()
 {
 	return LHASH;
 }
-string getRawE()
+string Node::getRawE()
 {
 	return RAWE;
 }
-vector<string> getRHist()
+vector<string> Node::getRHist()
 {
 	return RHISTH;
 }
-vector<string> getLHist()
+vector<string> Node::getLHist()
 {
 	return LHISTH;
 }
