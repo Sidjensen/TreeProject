@@ -85,3 +85,18 @@ void growTree(Node& root)
 		growTree(*root.rightChild());
 	}
 }
+
+Node& findNextEmpty(Node& traversee)
+{
+	if (traversee == NULL)
+	{
+		return;
+	}
+	if (traversee.getID() == NULL)
+	{
+		return &traversee
+	}
+	postOrder(traversee.leftChild())
+	postOrder(traversee.rightChild())
+}
+
