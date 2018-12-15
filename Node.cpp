@@ -6,7 +6,7 @@
 #include "Node.h"
 
 
-Node::Node(Node * parent)
+Node::Node(Node & parent)
 {
 	setParent(parent);
 }
@@ -40,14 +40,14 @@ void Node::addRawE(string e)
 {
 	RAWE = e;
 	ID = hashFunk(RAWE, PARENT);
-	if(this == parent_->leftChild())
+	if (this == parent_->leftChild())
 	{
-		//parent_->getLHist() = hashFunk(stuff); // This might need funkHash instead? Can we hash a vector?
+		//parent_->LHIST = hashFunk(stuff); // This might need funkHash instead? Can we hash a vector?
 		parent_->appendLHist(parent_->getLHist());
 	}
-	if(this == parent_->rightChild())
+	if (this == parent_->rightChild())
 	{
-		//parent_->getRHist() = hashFunk(stuff);
+		//parent_->LHIST = hashFunk(stuff);
 		parent_->appendRHist(parent_->getRHist());
 	}
 }
@@ -55,11 +55,11 @@ void Node::addRawE(string e)
 void Node::appendRHist(string s)
 {
 	RHISTH.push_back(s);
-	if(this == parent_.leftChild())
+	if (this == parent_.leftChild())
 	{
 		parent_->appendLHist(s);
 	}
-	if(this == parent_.rightChild())
+	if (this == parent_.rightChild())
 	{
 		parent_->appendRHist(s);
 	}
@@ -68,11 +68,11 @@ void Node::appendRHist(string s)
 void Node::appendLHist(string s)
 {
 	LHISTH.push_back(s);
-	if(this == parent_.leftChild())
+	if (this == parent_.leftChild())
 	{
 		parent_->appendLHist(s);
 	}
-	if(this == parent_.rightChild())
+	if (this == parent_.rightChild())
 	{
 		parent_->appendRHist(s);
 	}
@@ -118,11 +118,11 @@ Node * Node::rightChild()
 Node::~Node()
 {}
 
-string hashFunk(string ID, string other)
+string Node::hashFunk(string ID, string other)
 {
-	return ID.substr(0,0) + other.substr(0,0) + ID.substr(1, 1) + other.substr(1,1) + ID.substr(2, 2) + other.substr(2,2) + ID.substr(3, 3) + other.substr(3,3) + ID.substr(4, 4) + other.substr(4,4)
+	return ID.substr(0, 0) + other.substr(0, 0) + ID.substr(1, 1) + other.substr(1, 1) + ID.substr(2, 2) + other.substr(2, 2) + ID.substr(3, 3) + other.substr(3, 3) + ID.substr(4, 4) + other.substr(4, 4);
 }
-string funkHash(string Child1, string Child2, string Hist1, string Hist2)
+string Node::funkHash(string Child1, string Child2, string Hist1, string Hist2)
 {
-	return hashFunk(Child1, Child2).substr(0,3) + hashFunk(Hist1, Hist2).substr(4,7)
+	return hashFunk(Child1, Child2).substr(0, 3) + hashFunk(Hist1, Hist2).substr(4, 7);
 }
