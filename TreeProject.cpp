@@ -9,18 +9,18 @@
 using std::cout;
 using std::cin;
 
-void growTree(Node& root);
+void growTree(Node& root, Node* first);
 void showID(Node& traversee);
 void showRecords(Node& find, string id);
 void changeNode(Node& find, string id, string data);
-void newNode(string data);
+void newNode(Node& parent, string data);
 string printOut(vector<string> history);
 
 int main()
 {
 	string rawdata;
 	bool end = false;
-	Node * first = new Node();
+	Node* first = new Node();
 	while (end == false)
 	{
 		cout << "Enter 'Q' to quit the program, 'S' to show all tree ID's, 'ID' to manipulate an ID,  or enter NEW piece of raw data: ";
@@ -56,7 +56,7 @@ int main()
 		{
 			cout << "Enter contents for the record: ";
 			cin >> rawdata;
-			newNode(rawdata);
+			newNode(*first, rawdata);
 
 			// create new node on tree 
 			// Set to null, if first, some random thing for parent, and set Id from the data
@@ -66,20 +66,20 @@ int main()
 	return 0;
 }
 
-void growTree(Node& root)
+void growTree(Node& root, Node* first)
 {
 	if ((root.leftChild() == NULL) && (root.rightChild() == NULL))
 	{
-		root.addLeftChild();
-		root.addRightChild();
+		root.addLeftChild(*first);
+		root.addRightChild(*first);
 	}
 	else if (root.leftChild() != NULL)
 	{
-		growTree(*root.leftChild());
+		growTree(*root.leftChild(), first);
 	}
 	else if (root.rightChild() != NULL)
 	{
-		growTree(*root.rightChild());
+		growTree(*root.rightChild(), first);
 	}
 }
 
@@ -120,7 +120,7 @@ void showID(Node& traversee)
 	}
 }
 
-void Node::showRecords(Node& find, string id)
+void showRecords(Node& find, string id)
 {
 	Node& traversee = findNode(find, id);
 	cout << "ID: " << traversee.getID() << endl;
@@ -132,7 +132,7 @@ void Node::showRecords(Node& find, string id)
 	cout << "Left Hash History: " << printOut(traversee.getLHist()) << endl;
 }
 
-void Node::changeNode(Node& find, string id, string data)
+void changeNode(Node& find, string id, string data)
 {
 	Node& target = findNode(find, id);
 	target.addRawE(data);
@@ -141,13 +141,14 @@ void Node::changeNode(Node& find, string id, string data)
 	// change hash history
 }
 
-void Node::newNode(Node& parent, string data)
+void newNode(Node& parent, string data)
 {
-	// add a new node with the data
-	&node newNode = findNextEmpty(parent);
+	// add a new node with the data, and make a new node
+	Node& newNode = findNextEmpty(parent);
 	newNode.addRawE(data);
 }
-string Node::printOut(vector<string> history)
+
+string printOut(vector<string> history)
 {
 	string combination;
 	for (int i = 0; i < history.size(); i++)
