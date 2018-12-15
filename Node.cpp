@@ -16,39 +16,39 @@ Node::Node()
 
 }
 
-void Node::addLeftChild()
+void Node::addLeftChild(Node & parent)
 {
-	Node * child = new Node();
+	Node* child = new Node();
 	child.setParent(this);
 	leftchild_ = child;
 }
 
-void Node::addRightChild()
+void Node::addRightChild(Node & parent)
 {
-	Node * child = new Node();
-	child.setParent(this);
-	rightchild_ = child;
+	Node* child = new Node();
+	&child.setParent(parent);
+	parent.rightchild_ = child;
 }
 
 void Node::setParent(Node & parent)
 {
 	PARENT = parent.getID();
-	parent_ = *parent;
+	parent_ = &parent;
 }
 
 void Node::addRawE(string e)
 {
 	RAWE = e;
 	ID = hashFunk(RAWE, PARENT);
-	if (this == parent()->leftChild())
+	if (this == parent_->leftChild())
 	{
 		//parent_->LHIST = hashFunk(stuff); // This might need funkHash instead? Can we hash a vector?
-		parent()->appendLHist(parent_->getLHist());
+		parent_->appendLHist(parent_->getLHist());
 	}
-	if (this == parent()->rightChild())
+	if (this == parent_->rightChild())
 	{
 		//parent_->LHIST = hashFunk(stuff);
-		parent_->appendRHist(parent_->getRHist());
+		parent_->appendRHist(parent().getRHist());
 	}
 }
 
@@ -57,11 +57,11 @@ void Node::appendRHist(string s)
 	RHISTH.push_back(s);
 	if (this == parent().leftChild())
 	{
-		parent()->appendLHist(s);
+		parent_->appendLHist(s);
 	}
 	if (this == parent().rightChild())
 	{
-		parent()->appendRHist(s);
+		parent_->appendRHist(s);
 	}
 }
 
@@ -70,11 +70,11 @@ void Node::appendLHist(string s)
 	LHISTH.push_back(s);
 	if (this == parent().leftChild())
 	{
-		parent()->appendLHist(s);
+		parent_->appendLHist(s);
 	}
 	if (this == parent().rightChild())
 	{
-		parent()->appendRHist(s);
+		parent_->appendRHist(s);
 	}
 }
 
