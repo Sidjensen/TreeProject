@@ -1,6 +1,5 @@
 #pragma once
 // Node.h
-// Orginal code was Borrowed from Lab 2
 // Addison Dugal, Sidney Jensen, Evan Staben
 // Delcaration of node class and functions
 
