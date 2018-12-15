@@ -86,7 +86,7 @@ bool isFull(Node& traversee)
 	while (&traversee != NULL)
 	{
 
-		if (&traversee.getID() == "")
+		if (traversee.getID() == "")
 		{
 			return true;
 		}
@@ -100,7 +100,7 @@ Node& findNextEmpty(Node& traversee)
 	while (&traversee != NULL)
 	{
 
-		if (&traversee.getID() == "")
+		if (traversee.getID() == "")
 		{
 			return traversee;
 		}
@@ -108,7 +108,7 @@ Node& findNextEmpty(Node& traversee)
 		findNextEmpty(*traversee.rightChild());
 	}
 	return traversee;
-	}
+}
 Node& findNode(Node& traversee, string ID)
 {
 	while (&traversee != NULL)
@@ -122,9 +122,6 @@ Node& findNode(Node& traversee, string ID)
 		findNode(*traversee.leftChild(), ID);
 		findNode(*traversee.rightChild(), ID);
 	}
-	cout << "Node not found";
-	return traversee;
-}
 }
 void showID(Node& traversee)
 {
