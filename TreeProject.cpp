@@ -10,10 +10,10 @@ using std::cout;
 using std::cin;
 
 void growTree(Node& root, Node* first);
-void showID(Node& traversee);
-void showRecords(Node& find, string id);
-void changeNode(Node& find, string id, string data);
-void newNode(Node& parent, string data);
+void showID(Node* traversee);
+void showRecords(Node* find, string id);
+void changeNode(Node* find, string id, string data);
+void newNode(Node* parent, string data);
 string printOut(vector<string> history);
 
 int main()
@@ -33,33 +33,31 @@ int main()
 		else if (rawdata == "S")
 		{
 			//show tree as a set of ID values
-			showID(*first);
+			showID(first);
 		}
 		else if (rawdata == "ID")
 		{
 			string idTemp;
-			cout << "Type 'V' to see the entire record of the ID, and type 'U' to update the contents of the ID: ";
+			cout << "Type 'V' to see the entire record of the ID, and type 'U' to update the contents of the ID";
 			cin >> rawdata;
-			cout << "Type in the ID you wish to manipulate: ";
-			cin >> idTemp;
 			if (rawdata == "V")
 			{
 				// Show all records of the ID;
-				showRecords(*first, idTemp);
+				showRecords(first, idTemp);
 			}
 			if (rawdata == "U")
 			{
 				//make the node have new contents, and probably change ID, and all parent stuff
 				cout << "Enter new record contents: ";
 				cin >> rawdata;
-				changeNode(*first, idTemp, rawdata);
+				changeNode(first, idTemp, rawdata);
 			}
 		}
 		else if (rawdata == "NEW")
 		{
 			cout << "Enter contents for the record: ";
 			cin >> rawdata;
-			newNode(*first, rawdata); // This will always make the child under the original node. Should we see about a
+			newNode(first, rawdata); // This will always make the child under the original node. Should we see about a
 						  // pointer that points to the next Node to be filled?
 		}
 	}
@@ -172,4 +170,3 @@ string printOut(vector<string> history)
 	}
 	return combination;
 }
-
