@@ -38,9 +38,9 @@ public:
 	Node * leftChild();
 	Node * rightChild();
 	// Mutators
-	void setParent(Node * parent);
-	void addRightChild();
-	void addLeftChild();
+	void setParent(Node & parent);
+	void addRightChild(Node & parent);
+	void addLeftChild(Node & parent);
 	void addRawE(string e);
 	void appendRHist(string s);
 	void appendLHist(string s);
