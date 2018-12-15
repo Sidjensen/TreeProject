@@ -90,8 +90,8 @@ bool isFull(Node& traversee)
 		{
 			return true;
 		}
-		findNextEmpty(*traversee.leftChild());
-		findNextEmpty(*traversee.rightChild());
+		isFull(*traversee.leftChild());
+		isFull(*traversee.rightChild());
 	}
 	return false;
 }
