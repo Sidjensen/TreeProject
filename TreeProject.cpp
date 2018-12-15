@@ -122,6 +122,9 @@ Node& findNode(Node& traversee, string ID)
 		findNode(*traversee.leftChild(), ID);
 		findNode(*traversee.rightChild(), ID);
 	}
+	cout << "Node not found";
+	return traversee;
+}
 }
 void showID(Node& traversee)
 {
