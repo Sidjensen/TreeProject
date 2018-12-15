@@ -47,12 +47,6 @@ public:
 	void appendRHist(string s);
 	void appendLHist(string s);
 
-	void showIDs(Node * parent);
-	void showRecords(string id);
-	void changeNode(string id, string data);
-	void newNode(string data);
-	string printOut(vector<string> history);
-
 	string hashFunk(string ID, string other);
 	string funkHash(string Child1, string Child2, vector<string> Hist);
 
