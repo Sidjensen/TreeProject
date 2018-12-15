@@ -124,6 +124,8 @@ Node* findNode(Node* traversee, string ID)
 		findNode(traversee->leftChild(), ID);
 		findNode(traversee->rightChild(), ID);
 	}
+	cout << "node not found";
+	return traversee;
 }
 void showID(Node* traversee)
 {
