@@ -81,6 +81,20 @@ void growTree(Node& root, Node* first)
 	}
 }
 
+bool isFull(Node& traversee)
+{
+	while (&traversee != NULL)
+	{
+
+		if (&traversee.getID() == NULL)
+		{
+			return true;
+		}
+		findNextEmpty(*traversee.leftChild());
+		findNextEmpty(*traversee.rightChild());
+	}
+	return false;
+}
 Node& findNextEmpty(Node& traversee)
 {
 	while (&traversee != NULL)
@@ -93,7 +107,8 @@ Node& findNextEmpty(Node& traversee)
 		findNextEmpty(*traversee.leftChild());
 		findNextEmpty(*traversee.rightChild());
 	}
-}
+	return traversee;
+	}
 Node& findNode(Node& traversee, string ID)
 {
 	while (&traversee != NULL)
