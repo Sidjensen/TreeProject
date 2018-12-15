@@ -54,7 +54,7 @@ public:
 	string printOut(vector<string> history);
 
 	string hashFunk(string ID, string other);
-	string funkHash(string Child1, string Child2, string Hist1, string Hist2);
+	string funkHash(string Child1, string Child2, vector<string> Hist);
 
 
 private:
