@@ -57,11 +57,11 @@ public:
 
 private:
 	const Node & operator=(const Node &);
-	string ID = NULL;
-	string PARENT = NULL;
-	string RAWE = NULL;
-	string RHASH = NULL;
-	string LHASH = NULL;
+	string ID = "";
+	string PARENT = "";
+	string RAWE = "";
+	string RHASH = "";
+	string LHASH = "";
 	vector<string> RHISTH;
 	vector<string> LHISTH;
 	Node * parent_;
