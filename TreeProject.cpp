@@ -38,8 +38,10 @@ int main()
 		else if (rawdata == "ID")
 		{
 			string idTemp;
-			cout << "Type 'V' to see the entire record of the ID, and type 'U' to update the contents of the ID";
+			cout << "Type 'V' to see the entire record of the ID, and type 'U' to update the contents of the ID: ";
 			cin >> rawdata;
+			cout << "Type in the ID you wish to manipulate: ";
+			cin >> idTemp;
 			if (rawdata == "V")
 			{
 				// Show all records of the ID;
