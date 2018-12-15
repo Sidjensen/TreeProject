@@ -52,6 +52,15 @@ void Node::addRawE(string e)
 	}
 }
 
+void Node::setRHash(string e)
+{
+	RHASH = e;
+}
+void Node::setLHash(string e)
+{
+	LHASH = e;
+}
+
 void Node::appendRHist(string s)
 {
 	RHISTH.push_back(s);
