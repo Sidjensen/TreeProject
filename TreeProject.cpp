@@ -86,7 +86,7 @@ bool isFull(Node& traversee)
 	while (&traversee != NULL)
 	{
 
-		if (&traversee.getID() == NULL)
+		if (&traversee.getID() == "")
 		{
 			return true;
 		}
@@ -100,7 +100,7 @@ Node& findNextEmpty(Node& traversee)
 	while (&traversee != NULL)
 	{
 
-		if (&traversee.getID() == NULL)
+		if (&traversee.getID() == "")
 		{
 			return traversee;
 		}
