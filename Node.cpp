@@ -55,11 +55,11 @@ void Node::addRawE(string e)
 void Node::appendRHist(string s)
 {
 	RHISTH.push_back(s);
-	if (this == parent_.leftChild())
+	if (this == parent().leftChild())
 	{
 		parent_->appendLHist(s);
 	}
-	if (this == parent_.rightChild())
+	if (this == parent().rightChild())
 	{
 		parent_->appendRHist(s);
 	}
@@ -68,11 +68,11 @@ void Node::appendRHist(string s)
 void Node::appendLHist(string s)
 {
 	LHISTH.push_back(s);
-	if (this == parent_.leftChild())
+	if (this == parent().leftChild())
 	{
 		parent_->appendLHist(s);
 	}
-	if (this == parent_.rightChild())
+	if (this == parent().rightChild())
 	{
 		parent_->appendRHist(s);
 	}
