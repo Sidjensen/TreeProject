@@ -83,81 +83,81 @@ void growTree(Node& root, Node* first)
 	}
 }
 
-bool isFull(Node& traversee)
+bool isFull(Node* traversee)
 {
 	while (&traversee != NULL)
 	{
 
-		if (traversee.getID() == "")
+		if (traversee->getID() == "")
 		{
 			return true;
 		}
-		isFull(*traversee.leftChild());
-		isFull(*traversee.rightChild());
+		isFull(traversee->leftChild());
+		isFull(traversee->rightChild());
 	}
 	return false;
 }
-Node& findNextEmpty(Node& traversee)
+Node findNextEmpty(Node* traversee)
 {
 	while (&traversee != NULL)
 	{
 
-		if (traversee.getID() == "")
+		if (traversee->getID() == "")
+		{
+			return *traversee;
+		}
+		findNextEmpty(traversee->leftChild());
+		findNextEmpty(traversee->rightChild());
+	}
+	return *traversee;
+}
+Node* findNode(Node* traversee, string ID)
+{
+	while (traversee != NULL)
+	{
+
+
+		if (traversee->getID() == ID)
 		{
 			return traversee;
 		}
-		findNextEmpty(*traversee.leftChild());
-		findNextEmpty(*traversee.rightChild());
+		findNode(traversee->leftChild(), ID);
+		findNode(traversee->rightChild(), ID);
 	}
-	return traversee;
 }
-Node& findNode(Node& traversee, string ID)
+void showID(Node* traversee)
 {
-	while (&traversee != NULL)
+	while (traversee != NULL)
 	{
-
-
-		if (traversee.getID() == ID)
-		{
-			return traversee;
-		}
-		findNode(*traversee.leftChild(), ID);
-		findNode(*traversee.rightChild(), ID);
-	}
-}
-void showID(Node& traversee)
-{
-	while (&traversee != NULL)
-	{
-		cout << "ID: " << traversee.getID() << endl;
-		findNextEmpty(*traversee.leftChild());
-		findNextEmpty(*traversee.rightChild());
+		cout << "ID: " << traversee->getID() << endl;
+		findNextEmpty(traversee->leftChild());
+		findNextEmpty(traversee->rightChild());
 	}
 }
 
-void showRecords(Node& find, string id)
+void showRecords(Node* find, string id)
 {
-	Node& traversee = findNode(find, id);
-	cout << "ID: " << traversee.getID() << endl;
-	cout << "Parent: " << traversee.parent() << endl;
-	cout << "Raw Event: " << traversee.getRawE() << endl;
-	cout << "Right Hash: " << traversee.getRhash() << endl;
-	cout << "Left Hash: " << traversee.getLhash() << endl;
-	cout << "Right Hash History: " << printOut(traversee.getRHist()) << endl;
-	cout << "Left Hash History: " << printOut(traversee.getLHist()) << endl;
+	Node* traversee = findNode(find, id);
+	cout << "ID: " << traversee->getID() << endl;
+	cout << "Parent: " << traversee->parent() << endl;
+	cout << "Raw Event: " << traversee->getRawE() << endl;
+	cout << "Right Hash: " << traversee->getRhash() << endl;
+	cout << "Left Hash: " << traversee->getLhash() << endl;
+	cout << "Right Hash History: " << printOut(traversee->getRHist()) << endl;
+	cout << "Left Hash History: " << printOut(traversee->getLHist()) << endl;
 }
 
-void changeNode(Node& find, string id, string data)
+void changeNode(Node* find, string id, string data)
 {
-	Node& target = findNode(find, id);
-	target.addRawE(data);
+	Node* target = findNode(find, id);
+	target->addRawE(data);
 }
 
-void newNode(Node& parent, string data)
+void newNode(Node* parent, string data)
 {
 	// add a new node with the data, and make a new node
-	Node& newNode = findNextEmpty(parent);
-	newNode.addRawE(data);
+	Node* newNode = &findNextEmpty(parent);
+	newNode->addRawE(data);
 }
 
 string printOut(vector<string> history)
@@ -170,3 +170,4 @@ string printOut(vector<string> history)
 	}
 	return combination;
 }
+
