@@ -21,6 +21,7 @@ int main()
 	string rawdata;
 	bool end = false;
 	Node* first = new Node();
+	//first.addRawE(random); // Fill this in when we can generate a random string
 	while (end == false)
 	{
 		cout << "Enter 'Q' to quit the program, 'S' to show all tree ID's, 'ID' to manipulate an ID,  or enter NEW piece of raw data: ";
@@ -56,11 +57,8 @@ int main()
 		{
 			cout << "Enter contents for the record: ";
 			cin >> rawdata;
-			newNode(*first, rawdata);
-
-			// create new node on tree 
-			// Set to null, if first, some random thing for parent, and set Id from the data
-			// When new node is added, make parent id, and make new id
+			newNode(*first, rawdata); // This will always make the child under the original node. Should we see about a
+						  // pointer that points to the next Node to be filled?
 		}
 	}
 	return 0;
@@ -136,9 +134,6 @@ void changeNode(Node& find, string id, string data)
 {
 	Node& target = findNode(find, id);
 	target.addRawE(data);
-	// change id
-	// change hash
-	// change hash history
 }
 
 void newNode(Node& parent, string data)
