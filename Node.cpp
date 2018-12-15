@@ -1,4 +1,5 @@
 // Node.cpp
+// Orginal code was Borrowed from Lab 2
 // Sidney Jensen, Addison Dugal, Evan Staben
 // Definitions of the Node class methods
 
