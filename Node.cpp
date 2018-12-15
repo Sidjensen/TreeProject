@@ -1,8 +1,9 @@
 // Node.cpp
+// Orginal code was Borrowed from Lab 2
 // Sidney Jensen, Addison Dugal, Evan Staben
 // Definitions of the Node class methods
 
-#include "pch.h"
+
 #include "Node.h"
 
 
@@ -18,15 +19,15 @@ Node::Node()
 
 void Node::addLeftChild(Node & parent)
 {
-	Node * child = new Node();
-	child.setParent(this);
+	Node* child = new Node();
+	child->setParent(parent);
 	leftchild_ = child;
 }
 
 void Node::addRightChild(Node & parent)
 {
 	Node* child = new Node();
-	&child.setParent(parent);
+	child->setParent(parent);
 	parent.rightchild_ = child;
 }
 
@@ -43,12 +44,12 @@ void Node::addRawE(string e)
 	if (this == parent_->leftChild())
 	{
 		//parent_->LHIST = hashFunk(stuff); // This might need funkHash instead? Can we hash a vector?
-		parent_->appendLHist(parent_->getLhash());
+		parent_->appendLHist(parent_.getLHist());
 	}
 	if (this == parent_->rightChild())
 	{
 		//parent_->LHIST = hashFunk(stuff);
-		parent_->appendRHist(parent_->getRhash());
+		parent_->appendRHist(parent().getRHist());
 	}
 }
 
