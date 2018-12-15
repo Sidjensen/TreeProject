@@ -42,6 +42,8 @@ public:
 	void addRightChild(Node & parent);
 	void addLeftChild(Node & parent);
 	void addRawE(string e);
+	void setRHash(string e);
+	void setLHash(string e);
 	void appendRHist(string s);
 	void appendLHist(string s);
 
