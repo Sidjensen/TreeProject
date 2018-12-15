@@ -1,9 +1,9 @@
 // TreeProject.cpp : Defines the entry point for the console application.
+// Addison Dugal, Evan Staben, Sidney Jensen
 //
 
-#include "stdafx.h"
+#include "pch.h"
 #include "Node.h"
-#include "LinkedList.h"
 #include <string>
 #include <iostream>
 using std::cout;
@@ -93,7 +93,7 @@ Node& findNextEmpty(Node& traversee)
 		findNextEmpty(*traversee.leftChild());
 		findNextEmpty(*traversee.rightChild());
 	}
-	}
+}
 Node& findNode(Node& traversee, string ID)
 {
 	while (&traversee != NULL)
@@ -107,7 +107,7 @@ Node& findNode(Node& traversee, string ID)
 		findNode(*traversee.leftChild(), ID);
 		findNode(*traversee.rightChild(), ID);
 	}
-	}
+}
 void showID(Node& traversee)
 {
 	while (&traversee != NULL)
@@ -153,4 +153,3 @@ string printOut(vector<string> history)
 	}
 	return combination;
 }
-
