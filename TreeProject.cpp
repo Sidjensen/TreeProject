@@ -83,31 +83,31 @@ void growTree(Node& root, Node* first)
 
 Node& findNextEmpty(Node& traversee)
 {
-	if (&traversee == NULL)
+	while (&traversee != NULL)
 	{
-		return;
+
+		if (&traversee.getID() == NULL)
+		{
+			return traversee;
+		}
+		findNextEmpty(*traversee.leftChild());
+		findNextEmpty(*traversee.rightChild());
 	}
-	if (&traversee.getID() == NULL)
-	{
-		return traversee;
 	}
-	findNextEmpty(*traversee.leftChild());
-	findNextEmpty(*traversee.rightChild());
-}
 Node& findNode(Node& traversee, string ID)
 {
-	if (&traversee == NULL)
+	while (&traversee != NULL)
 	{
-		return;
-	}
-	if (traversee.getID() == ID)
-	{
-		return traversee;
-	}
-	findNode(*traversee.leftChild(), ID);
-	findNode(*traversee.rightChild(), ID);
-}
 
+
+		if (traversee.getID() == ID)
+		{
+			return traversee;
+		}
+		findNode(*traversee.leftChild(), ID);
+		findNode(*traversee.rightChild(), ID);
+	}
+	}
 void showID(Node& traversee)
 {
 	while (&traversee != NULL)
@@ -146,9 +146,11 @@ void newNode(Node& parent, string data)
 string printOut(vector<string> history)
 {
 	string combination;
-	for (int i = 0; i < history.size(); i++)
+	int temp = history.size();
+	for (int i = 0; i < temp; i++)
 	{
 		combination += history[i];
 	}
 	return combination;
 }
+
