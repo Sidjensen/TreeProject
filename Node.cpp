@@ -40,12 +40,12 @@ void Node::addRawE(string e)
 {
 	RAWE = e;
 	ID = hashFunk(RAWE, PARENT);
-	if (this == parent_->leftChild())
+	if (this == parent()->leftChild())
 	{
 		//parent_->LHIST = hashFunk(stuff); // This might need funkHash instead? Can we hash a vector?
-		parent_->appendLHist(parent_->getLHist());
+		parent()->appendLHist(parent_->getLHist());
 	}
-	if (this == parent_->rightChild())
+	if (this == parent()->rightChild())
 	{
 		//parent_->LHIST = hashFunk(stuff);
 		parent_->appendRHist(parent_->getRHist());
@@ -57,11 +57,11 @@ void Node::appendRHist(string s)
 	RHISTH.push_back(s);
 	if (this == parent().leftChild())
 	{
-		parent_->appendLHist(s);
+		parent()->appendLHist(s);
 	}
 	if (this == parent().rightChild())
 	{
-		parent_->appendRHist(s);
+		parent()->appendRHist(s);
 	}
 }
 
@@ -70,11 +70,11 @@ void Node::appendLHist(string s)
 	LHISTH.push_back(s);
 	if (this == parent().leftChild())
 	{
-		parent_->appendLHist(s);
+		parent()->appendLHist(s);
 	}
 	if (this == parent().rightChild())
 	{
-		parent_->appendRHist(s);
+		parent()->appendRHist(s);
 	}
 }
 
