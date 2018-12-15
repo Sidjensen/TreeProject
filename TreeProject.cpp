@@ -2,7 +2,7 @@
 // Addison Dugal, Evan Staben, Sidney Jensen
 //
 
-#include "pch.h"
+#include "stdafx.h"
 #include "Node.h"
 #include <string>
 #include <iostream>
@@ -38,8 +38,10 @@ int main()
 		else if (rawdata == "ID")
 		{
 			string idTemp;
-			cout << "Type 'V' to see the entire record of the ID, and type 'U' to update the contents of the ID";
+			cout << "Type 'V' to see the entire record of the ID, and type 'U' to update the contents of the ID: ";
 			cin >> rawdata;
+			cout << "Type in the ID you wish to manipulate: ";
+			cin >> idTemp;
 			if (rawdata == "V")
 			{
 				// Show all records of the ID;
@@ -58,7 +60,7 @@ int main()
 			cout << "Enter contents for the record: ";
 			cin >> rawdata;
 			newNode(first, rawdata); // This will always make the child under the original node. Should we see about a
-						  // pointer that points to the next Node to be filled?
+									  // pointer that points to the next Node to be filled?
 		}
 	}
 	return 0;
