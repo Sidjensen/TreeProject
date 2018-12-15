@@ -131,7 +131,11 @@ string Node::hashFunk(string ID, string other)
 {
 	return ID.substr(0, 0) + other.substr(0, 0) + ID.substr(1, 1) + other.substr(1, 1) + ID.substr(2, 2) + other.substr(2, 2) + ID.substr(3, 3) + other.substr(3, 3) + ID.substr(4, 4) + other.substr(4, 4);
 }
-string Node::funkHash(string Child1, string Child2, string Hist1, string Hist2)
+string Node::funkHash(string Child1, string Child2, vector Hist)
 {
-	return hashFunk(Child1, Child2).substr(0, 3) + hashFunk(Hist1, Hist2).substr(4, 7);
+	string hash1 = hashFunk(Child1, Child2).substr(0, 3);
+	string half1 = Hist[0] + Hist[1] + Hist[2] + Hist[3];
+	string half2 = Hist[4] + Hist[5] + Hist[6] + Hist[7];
+	string hash2 = hashFunk(half1, half2);
+	return (hash1 + hash2);
 }
