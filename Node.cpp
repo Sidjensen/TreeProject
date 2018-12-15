@@ -1,5 +1,5 @@
 // Node.cpp
-// Sidney Jensen, Addison Dugal, Evan Staben
+// Addison Dugal, Evan Staben, Sidney Jensen
 // Definitions of the Node class methods
 
 #include "pch.h"
@@ -42,12 +42,12 @@ void Node::addRawE(string e)
 	ID = hashFunk(RAWE, PARENT);
 	if (this == parent_->leftChild())
 	{
-		//parent_->LHIST = hashFunk(stuff); // This might need funkHash instead? Can we hash a vector?
+		parent_->setRHash(funkHash(ID, RAWE, LHISTH));
 		parent_->appendLHist(parent_->getLhash());
 	}
 	if (this == parent_->rightChild())
 	{
-		//parent_->LHIST = hashFunk(stuff);
+		parent_->setLHash(funkHash(ID, RAWE, RHISTH));
 		parent_->appendRHist(parent_->getRhash());
 	}
 }
@@ -131,7 +131,7 @@ string Node::hashFunk(string ID, string other)
 {
 	return ID.substr(0, 0) + other.substr(0, 0) + ID.substr(1, 1) + other.substr(1, 1) + ID.substr(2, 2) + other.substr(2, 2) + ID.substr(3, 3) + other.substr(3, 3) + ID.substr(4, 4) + other.substr(4, 4);
 }
-string Node::funkHash(string Child1, string Child2, vector Hist)
+string Node::funkHash(string Child1, string Child2, vector<string> Hist)
 {
 	string hash1 = hashFunk(Child1, Child2).substr(0, 3);
 	string half1 = Hist[0] + Hist[1] + Hist[2] + Hist[3];
